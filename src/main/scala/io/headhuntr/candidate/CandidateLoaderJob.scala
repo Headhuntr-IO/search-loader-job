@@ -38,6 +38,13 @@ case class CandidateLoaderJob(
     jobHistory
       .camelCase()
       .toIntegerType("monthsExperience")
+      .invalidAsNull("jobStart", "yyyy-MM-dd")
+      .invalidAsNull("jobEnd", "yyyy-MM-dd")
+      .rename(Map(
+        "jobSequence" -> "sequence",
+        "jobStart" -> "start",
+        "jobEnd" -> "end",
+        "workLocation" -> "location"))
       .toList("candId", "jobHistory")
   }
 
