@@ -10,10 +10,6 @@ object CandidateLoader {
     val dmzDir = config("dmzDir")
     val workingDir = config("workingDir")
 
-    val buildFirst = true
-    val batchSize = 1000000
-    val idStart = 0
-    val idEnd = Long.MaxValue
     val esIndex = "candidates"
 
     val candidateProfileList = spark.read.parquet(s"$dmzDir/candidates")
@@ -24,11 +20,7 @@ object CandidateLoader {
       jobHistory,
       esHost,
       esIndex,
-      batchSize,
-      workingDir,
-      idStart,
-      idEnd,
-      buildFirst
+      workingDir
     ).executeJob()
   }
 

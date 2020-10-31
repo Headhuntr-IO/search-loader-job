@@ -10,11 +10,7 @@ case class CandidateLoaderJob(
                                jobHistory: DataFrame,
                                esHost: String,
                                esIndex: String,
-                               batchSize: Int,
-                               workingDir: String,
-                               start: Long = 0,
-                               end: Long = Long.MaxValue,
-                               buildFirst: Boolean = false) {
+                               workingDir: String) {
 
   def executeJob(): Unit = {
     val candDF = buildCandidates()

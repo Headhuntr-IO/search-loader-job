@@ -19,11 +19,7 @@ class CandidateLoaderJobTest extends FlatSpec with SharedSparkContext {
       jobHistory,
       Constants.ElasticSearchHost,
       "hh2_candidates",
-      300,
-      "src/test/resources/parquet/temp/workingDir",
-      start = 1,
-      end = 999999999,
-      buildFirst = true
+      "src/test/resources/parquet/temp/workingDir"
     ).executeJob()
   }
 
