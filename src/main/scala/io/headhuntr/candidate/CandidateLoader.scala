@@ -10,7 +10,7 @@ object CandidateLoader {
     val dmzDir = config("dmzDir")
     val workingDir = config("workingDir")
 
-    val esIndex = "candidates"
+    val esIndex = "hh2_candidates"
 
     val candidateProfileList = spark.read.parquet(s"$dmzDir/candidates")
     val jobHistory = spark.read.parquet(s"$dmzDir/candidates_job_history")
