@@ -1,6 +1,7 @@
 package io.headhuntr
 
 import io.headhuntr.candidate.CandidateLoader
+import io.headhuntr.generic.{GenericLoader, GenericLoaderJob}
 import io.headhuntr.util.SparkSessionHelper.createSession
 
 object JobRunner {
@@ -13,6 +14,7 @@ object JobRunner {
 
     jobType match {
       case "candidate" => CandidateLoader.delegate(spark, config)
+      case "generic" => GenericLoader.delegate(spark, config)
     }
   }
 }
